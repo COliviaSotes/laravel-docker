@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration\DataSources;
+namespace Tests\Integration\Controller\DataSources;
 
 use App\DataSource\Database\EloquentUserDataSource;
 use App\Models\User;

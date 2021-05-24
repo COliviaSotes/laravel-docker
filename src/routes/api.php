@@ -1,7 +1,13 @@
 <?php
 
-use App\Http\Controllers\IsEarlyAdopterUserController;
+use App\Http\Controllers\BalanceController;
+use App\Http\Controllers\BuyCoinsController;
+use App\Http\Controllers\GetWalletCryptocurrenciesController;
+use App\Http\Controllers\IsEarlyAdopterController;
+use App\Http\Controllers\OpenWalletController;
+use App\Http\Controllers\SellCoinsController;
 use App\Http\Controllers\StatusController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +30,33 @@ Route::get(
     StatusController::class
 );
 
-Route::get('user/{email}', IsEarlyAdopterUserController::class);
+// EJEMPLO PARA OBTENER LOS DATOS DE UN USUARIO
+Route::get(
+    'user/{id}', //así se obtienen parametros por url
+    IsEarlyAdopterController::class
+);
+
+Route::post(
+    '/wallet/open',
+    OpenWalletController::class
+);
+
+Route::get(
+    '/wallet/{wallet_id}',
+    GetWalletCryptocurrenciesController::class
+);
+
+Route::post(
+    '/coin/buy',
+    BuyCoinsController::class
+);
+
+Route::post(
+    '/coin/sell',
+    SellCoinsController::class
+);
+
+Route::get(
+    '/wallet/{wallet_id}/balance',
+    BalanceController::class
+);
